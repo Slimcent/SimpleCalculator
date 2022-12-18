@@ -1,16 +1,70 @@
-# This is a sample Python script.
+def validate_input(number):
+    while True:
+        try:
+            input_number = int(input(number))
+        except ValueError:
+            print("number is invalid")
+            continue
+        else:
+            return input_number
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
+def user_selection(user_choice):
+    while True:
+        try:
+            user_choice = int(input(user_choice))
+        except ValueError:
+            print("Invalid number")
+            continue
+        else:
+            if user_choice == 1 or user_choice == 2 or user_choice == 3 or user_choice == 4:
+                return user_choice
+            else:
+                print("Invalid selection")
+                user_choice = user_choice
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def calculation():
+    while True:
+        user_choice = user_selection()
+        if user_choice == 1:
+            print("Addition")
+        elif user_choice == 2:
+            print("Subtraction")
+        elif user_choice == 3:
+            print("Multiplication")
+        else:
+            print("Division")
+            break
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def number_addition():
+    first_number = validate_input("Enter first number")
+    print(f"First number {first_number}")
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    second_number = validate_input("Enter second number")
+    print(f"Second number {second_number}")
+
+    addition = int(first_number + second_number)
+    print(f"Addition is {addition}")
+
+
+def number_subtraction():
+    first_number = validate_input("Enter first number")
+    print(f"First number {first_number}")
+
+    second_number = validate_input("Enter second number")
+    print(f"Second number {second_number}")
+
+    addition = int(first_number - second_number)
+    print(f"Addition is {addition}")
+
+
+selection = user_selection("press 1 for Addition \nPress 2 for Subtraction \nPress 3 for Multiplication \nPress 4 for "
+                           "Division\n")
+
+# first_number = validate_input("Enter first number")
+# print(f"First number {first_number}")
+#
+# second_number = validate_input("Enter second number")
+# print(f"Second number {second_number}")
