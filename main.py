@@ -9,6 +9,33 @@ def validate_input(number):
             return input_number
 
 
+def number_addition(first_number, second_number):
+    addition = int(first_number + second_number)
+    return addition
+
+
+def number_subtraction(first_number, second_number):
+    subtraction = int(first_number - second_number)
+    return subtraction
+
+
+def number_multiplication(first_number, second_number):
+    multiplication = int(first_number * second_number)
+    return multiplication
+
+
+def number_division(first_number, second_number):
+    division = int(first_number / second_number)
+    return division
+
+
+def check_zero(number):
+    while number == 0:
+        print("Cannot divide by 0")
+        number = number
+    return number
+
+
 def user_selection(user_choice):
     while True:
         try:
@@ -24,47 +51,34 @@ def user_selection(user_choice):
                 user_choice = user_choice
 
 
-def calculation():
+def calculation(user_choice, first_number, second_number):
     while True:
-        user_choice = user_selection()
         if user_choice == 1:
-            print("Addition")
+            addition = number_addition(first_number, second_number)
+            return addition
         elif user_choice == 2:
-            print("Subtraction")
+            subtraction = number_subtraction(first_number, second_number)
+            return subtraction
         elif user_choice == 3:
-            print("Multiplication")
+            multiplication = number_multiplication(first_number, second_number)
+            return multiplication
         else:
-            print("Division")
-            break
+            zero_check = check_zero(second_number)
+            division = number_division(first_number, zero_check)
+            return division
 
 
-def number_addition():
-    first_number = validate_input("Enter first number")
-    print(f"First number {first_number}")
-
-    second_number = validate_input("Enter second number")
-    print(f"Second number {second_number}")
-
-    addition = int(first_number + second_number)
-    print(f"Addition is {addition}")
+def menu_display():
+    menu = user_selection("press 1 for Addition \nPress 2 for Subtraction \nPress 3 for Multiplication \nPress 4 for "
+                          "Division\n")
+    return menu
 
 
-def number_subtraction():
-    first_number = validate_input("Enter first number")
-    print(f"First number {first_number}")
+selection = menu_display()
+number1 = validate_input("Enter first number")
+number2 = validate_input("Enter second number")
 
-    second_number = validate_input("Enter second number")
-    print(f"Second number {second_number}")
+result = calculation(selection, number1, number2)
+print(f"Result = {result}\n")
 
-    addition = int(first_number - second_number)
-    print(f"Addition is {addition}")
-
-
-selection = user_selection("press 1 for Addition \nPress 2 for Subtraction \nPress 3 for Multiplication \nPress 4 for "
-                           "Division\n")
-
-# first_number = validate_input("Enter first number")
-# print(f"First number {first_number}")
-#
-# second_number = validate_input("Enter second number")
-# print(f"Second number {second_number}")
+selection = menu_display()
